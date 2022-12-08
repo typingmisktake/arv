@@ -1,0 +1,10 @@
+<button
+  *ngFor="let link of links"
+  [routerLink]="link.path"
+  class="w-full px-4 py-2 text-2xl backdrop-blur-[10px] text-white font-semibold border shadow cursor-pointer bg-white/10 border-white/10 rounded-xl mb-3 group"
+>
+  <span
+    class="transition duration-500 drop-shadow group-hover:drop-shadow-lg"
+    >{{ link.text }}</span
+  >
+</button>

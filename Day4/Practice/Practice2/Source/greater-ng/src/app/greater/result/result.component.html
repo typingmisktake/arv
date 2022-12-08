@@ -1,0 +1,12 @@
+<h1 *ngIf="num1 !== undefined && num2 !== undefined; else elseBlock">
+  <!-- If num1 is greater -->
+  <span *ngIf="num1 > num2; else twoBlock">{{ num1 }} is greater</span>
+  <ng-template #twoBlock>
+    <!-- If num2 is greater -->
+    <span *ngIf="num2 > num1; else equalBlock">{{ num2 }} is greater</span>
+    <!-- If both numbers are equal -->
+    <ng-template #equalBlock> Both are equal </ng-template>
+  </ng-template>
+</h1>
+
+<ng-template #elseBlock> Enter numbers to see result... </ng-template>

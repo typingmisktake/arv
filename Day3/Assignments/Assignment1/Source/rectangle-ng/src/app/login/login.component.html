@@ -1,0 +1,32 @@
+<div *ngIf="!isLoggedIn; else elseBlock" class="text-light">
+  <form action="javascript:void(0)" class="d-flex gap-1">
+    <input
+      type="text"
+      name="username"
+      id="username"
+      class="form-control"
+      placeholder="username"
+      [(ngModel)]="username"
+    />
+    <input
+      type="password"
+      name="password"
+      placeholder="password"
+      id="password"
+      class="form-control"
+      [(ngModel)]="key"
+    />
+    <input
+      type="submit"
+      value="Login"
+      class="btn btn-primary"
+      (click)="login()"
+    />
+  </form>
+</div>
+<ng-template #elseBlock>
+  <div class="d-flex gap-2 text-light align-items-center">
+    <p class="lead m-0">Hello, Admin</p>
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
+  </div>
+</ng-template>

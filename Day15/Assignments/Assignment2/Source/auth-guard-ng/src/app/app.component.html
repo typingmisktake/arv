@@ -1,0 +1,61 @@
+<div class="flex flex-col min-h-screen">
+  <header class="text-white bg-zinc-700">
+    <div class="container p-5">
+      <div class="flex items-center justify-between">
+        <div>
+          <a
+            class="px-4 py-2 transition duration-500 hover:bg-zinc-600"
+            routerLink="/"
+            >Home</a
+          >
+          <a
+            *ngIf="isLoggedIn"
+            class="px-4 py-2 transition duration-500 hover:bg-zinc-600"
+            routerLink="/product"
+            >Product List</a
+          >
+          <a
+            class="px-4 py-2 transition duration-500 hover:bg-zinc-600"
+            routerLink="/product/add"
+            *ngIf="isAdmin"
+            >Add Product</a
+          >
+        </div>
+        <div
+          *ngIf="isLoggedIn; else Login"
+          class="grid items-center grid-cols-2 gap-4"
+        >
+          <h2 class="text-xl">Hello, user.</h2>
+          <button (click)="onLogout()" class="px-4 py-2 bg-slate-900">
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="flex-1 bg-zinc-200">
+    <div class="container p-5">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+
+<ng-template #Login>
+  <div class="">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="username"
+        class="px-4 py-2 outline-none bg-zinc-600"
+      />
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="password"
+        class="px-4 py-2 outline-none bg-zinc-600"
+      />
+      <button type="submit" class="px-4 py-2 bg-slate-900">Login</button>
+    </form>
+  </div>
+</ng-template>

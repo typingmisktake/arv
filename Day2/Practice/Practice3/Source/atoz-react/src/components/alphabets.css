@@ -1,0 +1,32 @@
+.alphabets {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 920px;
+  color: rgb(22, 22, 22);
+  font-weight: 500;
+  font-size: 36px;
+  gap: 1rem;
+}
+
+.alphabets > li {
+  background: rgb(219, 244, 255);
+  background: linear-gradient(
+    135deg,
+    rgba(219, 244, 255, 1) 0%,
+    rgba(47, 92, 255, 1) 100%
+  );
+  border-radius: 100% 85%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.alphabets > li:hover {
+  color: white;
+  border-radius: 100% 65%;
+}

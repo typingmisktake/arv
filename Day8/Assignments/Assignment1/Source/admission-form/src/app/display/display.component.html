@@ -1,0 +1,162 @@
+<table
+  aria-describedby="Applications"
+  className="w-full mb-5 text-center text-white border border-collapse table-auto border-slate-900"
+  *ngFor="let application of applications; let index = index"
+>
+  <thead>
+    <tr className="text-white border bg-slate-800">
+      <th className="px-2 py-1 border border-slate-900">Sr no</th>
+      <th className="px-2 py-1 border border-slate-900">Name</th>
+      <th className="px-2 py-1 border border-slate-900">DOB</th>
+      <th className="px-2 py-1 border border-slate-900">Place of birth</th>
+      <th className="px-2 py-1 border border-slate-900">First Language</th>
+      <th className="px-2 py-1 border border-slate-900">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr className="text-white border bg-slate-500">
+      <td className="px-2 py-1 border border-slate-900" rowSpan="5">
+        {{ index + 1 }}
+      </td>
+      <td className="px-2 py-1 border border-slate-900">
+        {{ join(application.name) }}
+      </td>
+      <td className="px-2 py-1 border border-slate-900">
+        {{ application.dateOfBirth }}
+      </td>
+      <td className="px-2 py-1 border border-slate-900">
+        {{ application.placeOfBirth }}
+      </td>
+      <td className="px-2 py-1 border border-slate-900">
+        {{ application.firstLanguage }}
+      </td>
+      <td className="px-2 py-1 border border-slate-900">
+        {{ join(application.address) }}
+      </td>
+    </tr>
+    <tr>
+      <td colSpan="5" className="p-2" aria-label="father">
+        <table
+          className="w-full text-center border border-collapse table-auto"
+          aria-label="Father"
+        >
+          <thead>
+            <tr>
+              <th colspan="7" scope="col">Father</th>
+            </tr>
+            <tr className="px-2 py-1 border border-slate-900">
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Name
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Email
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Phone
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Education
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Qualification
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Profession
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Designation
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="px-2 py-1 border border-slate-900">
+              <td className="px-2 py-1 border border-slate-900">
+                {{ join(application.father.name) }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.father.email }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.father.phone }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.father.education.join(", ") }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.father.qualification }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.father.profession }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.father.designation }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colSpan="5" className="p-2" aria-label="Mother">
+        <table
+          className="w-full text-center border border-collapse table-auto"
+          aria-label=""
+        >
+          <thead>
+            <tr>
+              <th colspan="7" scope="col">Mother</th>
+            </tr>
+            <tr className="px-2 py-1 border border-slate-900">
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Name
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Email
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Phone
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Education
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Qualification
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Profession
+              </th>
+              <th scope="col" className="px-2 py-1 border border-slate-900">
+                Designation
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="px-2 py-1 border border-slate-900">
+              <td className="px-2 py-1 border border-slate-900">
+                {{ join(application.mother.name) }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.father.email }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.father.phone }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.mother.education.join(", ") }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.mother.qualification }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.mother.profession }}
+              </td>
+              <td className="px-2 py-1 border border-slate-900">
+                {{ application.mother.designation }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>

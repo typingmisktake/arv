@@ -1,0 +1,10 @@
+<div
+  class="flex items-center justify-center min-h-screen bg-gradient-to-b md:bg-gradient-to-br from-sky-500 to-slate-800"
+>
+  <div class="text-center">
+    <h1 *ngIf="name" class="mb-3 text-3xl text-center text-white">
+      Hello, {{ name }}.
+    </h1>
+    <app-profile (nameChange)="handleNameChange($event)"></app-profile>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="p-5">
+  <div class="mt-5 mb-3">
+    <h1 class="text-3xl underline decoration-dotted decoration-orange-600">
+      Add new product
+    </h1>
+  </div>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      formControlName="title"
+      class="w-full px-4 py-2 mb-3"
+      placeholder="Title"
+    />
+    <input
+      type="number"
+      formControlName="price"
+      class="w-full px-4 py-2 mb-3"
+      placeholder="Price"
+    />
+    <button
+      type="submit"
+      class="w-full px-4 py-2 text-white bg-slate-900 hover:bg-slate-800"
+    >
+      Create
+    </button>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+<div *ngIf="isEditing; else ElseBlock">
+  <input type="text" [(ngModel)]="updateForm.firstName" />
+  <input type="text" [(ngModel)]="updateForm.lastName" />
+  <button (click)="toggleEditing()">Cancel</button>
+  <button (click)="handleUpdate()">Update</button>
+</div>
+<ng-template #ElseBlock>
+  <label>
+    {{ student.firstName + " " + student.lastName }}
+    <button type="button" (click)="handleDelete()">Delete</button>
+  </label>
+  <button type="button" (click)="toggleEditing()">Edit</button>
+</ng-template>
+<br />
+<br />

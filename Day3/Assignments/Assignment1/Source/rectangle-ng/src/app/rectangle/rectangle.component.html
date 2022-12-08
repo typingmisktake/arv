@@ -1,0 +1,27 @@
+<div>
+  <h1>Area of Rectangle</h1>
+  <form (submit)="calculate($event)" class="mb-3">
+    <div class="mb-3">
+      <input
+        type="number"
+        name="length"
+        id="length"
+        placeholder="Length"
+        class="form-control"
+        [(ngModel)]="length"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="text"
+        name="width"
+        id="width"
+        placeholder="Width"
+        class="form-control"
+        [(ngModel)]="width"
+      />
+    </div>
+    <input type="submit" value="Calculate Area" class="btn btn-primary" />
+  </form>
+  <h1 class="display-1">{{ area }}</h1>
+</div>

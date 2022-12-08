@@ -1,0 +1,35 @@
+<div
+  class="bg-gradient-to-b from-stone-700 to-stone-600 min-h-screen text-slate-100 py-10"
+>
+  <header>
+    <div class="container flex justify-center">
+      <nav class="">
+        <div class="">
+          <a
+            class="px-4 py-2 text-2xl bg-slate-100 text-stone-700 mx-2 border border-slate-100 hover:bg-inherit hover:text-slate-100 transition-all"
+            routerLink="/home"
+            routerLinkActive="bg-stone-700 text-white"
+            >Home</a
+          >
+          <a
+            class="px-4 py-2 text-2xl bg-slate-100 text-stone-700 mx-2 border border-slate-100 hover:bg-inherit hover:text-slate-100 transition-all"
+            routerLink="/aboutUs"
+            routerLinkActive="bg-stone-700 text-white"
+            >About Us</a
+          >
+          <a
+            class="px-4 py-2 text-2xl bg-slate-100 text-stone-700 mx-2 border border-slate-100 hover:bg-inherit hover:text-slate-100 transition-all"
+            routerLink="/contactUs"
+            routerLinkActive="bg-stone-700 text-white"
+            >Contact Us</a
+          >
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container flex justify-center mt-10">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

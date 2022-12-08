@@ -1,0 +1,6 @@
+<form [formGroup]="studentForm" (ngSubmit)="handleSubmit()">
+  <label>First name: <input type="text" formControlName="firstName" /></label>
+  <label>Last name: <input type="text" formControlName="lastName" /></label>
+  <button [disabled]="!studentForm.valid" type="submit">Insert</button>
+</form>
+<br />

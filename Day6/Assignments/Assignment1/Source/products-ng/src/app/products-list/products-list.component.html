@@ -1,0 +1,7 @@
+<div class="flex flex-wrap">
+  <ng-container *ngFor="let product of products">
+    <div class="w-1/3 p-3">
+      <app-product [product]="product"></app-product>
+    </div>
+  </ng-container>
+</div>

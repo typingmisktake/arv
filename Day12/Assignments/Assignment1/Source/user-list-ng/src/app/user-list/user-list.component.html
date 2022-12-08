@@ -1,0 +1,4 @@
+<button *ngFor="let user of userList" [routerLink]="['/users', user.userID]">
+  {{ user.userName }}
+</button>
+<router-outlet></router-outlet>

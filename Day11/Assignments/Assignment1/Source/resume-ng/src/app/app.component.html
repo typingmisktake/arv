@@ -1,0 +1,32 @@
+<div
+  class="bg-[url('/assets/bg.jpg')] bg-center bg-cover bg-no-repeat min-h-screen p-10 items-stretch flex"
+>
+  <div class="container flex flex-col mx-auto text-white">
+    <div class="flex justify-center mt-10">
+      <button
+        class="flex items-center justify-center gap-3 px-4 py-2 text-4xl text-white border shadow cursor-pointer bg-white/10 border-white/10 rounded-xl backdrop-blur-[10px] font-bold group"
+        routerLink=""
+      >
+        <img
+          src="assets/user.svg"
+          alt=""
+          class="h-12 transition duration-500 rounded-full invert drop-shadow aspect-square group-hover:drop-shadow-lg"
+        />
+        <span
+          class="transition duration-500 drop-shadow group-hover:drop-shadow-lg"
+          >John Doe</span
+        >
+      </button>
+    </div>
+    <div class="flex flex-auto gap-6 p-5 mt-5 md:grid-cols-4">
+      <div class="flex flex-col w-1/4 gap-2 text-white">
+        <app-links></app-links>
+      </div>
+      <div
+        class="w-3/4 px-4 py-2 text-xl border shadow bg-white/10 border-white/10 backdrop-blur-[10px] rounded-xl drop-shadow"
+      >
+        <router-outlet> </router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

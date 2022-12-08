@@ -1,0 +1,19 @@
+<h1>Find Greater Number</h1>
+<form action="">
+  <input
+    type="number"
+    name="num1"
+    id="num1"
+    placeholder="Enter a number"
+    [(ngModel)]="num1"
+  />
+  <input
+    type="number"
+    name="num2"
+    id="num2"
+    placeholder="Enter another number"
+    [(ngModel)]="num2"
+  />
+</form>
+
+<app-result [num1]="num1" [num2]="num2"></app-result>

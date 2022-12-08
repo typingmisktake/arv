@@ -1,0 +1,25 @@
+<div class="flex">
+  <div class="w-2/3">
+    <div class="mt-5 mb-3">
+      <h1
+        class="inline px-4 py-2 text-3xl underline decoration-emerald-600 decoration-dashed"
+      >
+        Products
+      </h1>
+    </div>
+    <div class="flex flex-wrap">
+      <div
+        *ngFor="let product of products; let index = index"
+        class="w-1/2 p-3"
+      >
+        <app-product-item
+          [product]="product"
+          [index]="index"
+        ></app-product-item>
+      </div>
+    </div>
+  </div>
+  <div class="w-1/3">
+    <router-outlet></router-outlet>
+  </div>
+</div>

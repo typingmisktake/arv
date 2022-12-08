@@ -1,0 +1,72 @@
+<script>
+export default {
+  data() {
+    return {
+      title: "",
+      desc: "",
+      imageUrl: "",
+    };
+  },
+  methods: {
+    submit(e) {
+      e.preventDefault();
+      this.$emit("createPost", {
+        title: this.title,
+        desc: this.desc,
+        imageUrl: this.imageUrl,
+        date: new Date().toLocaleDateString("en-in", { dateStyle: "full" }),
+      });
+    },
+  },
+  emits: ["createPost"],
+};
+</script>
+<template>
+  <div class="p-3 shadow rounded-3xl bg-slate-200">
+    <form action="">
+      <div class="p-3 mb-3">
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="w-full text-xl outline-none bg-inherit"
+          v-model="title"
+          autocomplete="off"
+          placeholder="Write post name here..."
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          name="imageUrl"
+          id="imageUrl"
+          class="w-full px-4 py-2 rounded-2xl"
+          placeholder="Past image url here..."
+          v-model="imageUrl"
+        />
+      </div>
+      <div class="mb-3">
+        <textarea
+          name="post"
+          id="post"
+          rows="2"
+          class="w-full px-4 py-2 outline-none resize-none rounded-2xl"
+          placeholder="Write post description here..."
+          v-model="desc"
+        ></textarea>
+      </div>
+      <div class="mb-3 text-end">
+        <button
+          type="submit"
+          @click="submit"
+          class="px-4 py-2 text-white rounded-full cursor-pointer bg-primary group"
+        >
+          Post
+          <span
+            class="transition-all fa-solid fa-paper-plane group-hover:ml-1"
+          ></span>
+        </button>
+      </div>
+    </form>
+  </div>
+</template>

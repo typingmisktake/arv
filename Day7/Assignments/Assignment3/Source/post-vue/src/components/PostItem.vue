@@ -1,0 +1,57 @@
+<script>
+export default {
+  props: {
+    post: {
+      id: null,
+      title: "",
+      desc: "",
+      date: "",
+      imageUrl: "",
+      isLiked: false,
+    },
+  },
+  methods: {
+    handleClick(e) {
+      e.preventDefault();
+      this.$emit("onLike", this.post.id);
+    },
+  },
+  emits: ["onLike"],
+  computed: {
+    likeButtonClass() {
+      if (this.post.isLiked) return "fa-solid text-rose-500";
+      else return "fa-regular";
+    },
+  },
+};
+</script>
+<template>
+  <div
+    class="p-3 transition-shadow duration-500 bg-slate-200 hover:shadow-xl rounded-3xl"
+  >
+    <div class="mx-1 my-2">
+      <h1 class="text-3xl uppercase">{{ post.title }}</h1>
+    </div>
+    <div class="mt-3" v-if="post.imageUrl">
+      <img
+        :src="post.imageUrl"
+        alt=""
+        class="object-cover rounded-2xl aspect-video"
+      />
+    </div>
+    <div class="mt-3">
+      <h2 class="px-4 py-1 bg-white rounded-2xl line-clamp-2">
+        {{ post.desc }}
+      </h2>
+    </div>
+    <div class="flex justify-between p-3">
+      <button class="flex items-center gap-1 group" @click="handleClick">
+        <span
+          :class="likeButtonClass + ' fa-heart transition-all duration-300'"
+        ></span>
+        <span class="transition-all group-hover:tracking-widest">Like</span>
+      </button>
+      <p class="self-end text-sm opacity-50">{{ post.date }}</p>
+    </div>
+  </div>
+</template>

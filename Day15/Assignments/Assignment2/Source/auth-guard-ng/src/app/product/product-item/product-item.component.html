@@ -1,0 +1,48 @@
+<div class="p-5 transition duration-500 bg-white shadow cursor-pointer">
+  <form [formGroup]="updateForm" (ngSubmit)="update()">
+    <input
+      class="w-full mb-3 text-3xl bg-white disabled:outline-none disabled:border-none outline-2 outline-offset-2 outline-dashed outline-blue-500"
+      formControlName="title"
+    />
+    <div class="flex items-center justify-between mb-3">
+      <span class="">Price</span>
+      <input
+        class="text-2xl bg-white disabled:outline-none text-end disabled:border-none outline-2 outline-offset-2 outline-dashed outline-blue-500"
+        formControlName="price"
+      />
+    </div>
+
+    <div *ngIf="isAdmin && !isEditing" class="flex gap-2">
+      <button
+        (click)="toggleEditing()"
+        type="button"
+        class="text-xl underline hover:text-transparent decoration-dashed decoration-rose-500 hover:decoration-dotted hover:bg-gradient-to-r bg-clip-text hover:from-rose-500 hover:via-red-400 hover:to-fuchsia-500"
+      >
+        Edit
+      </button>
+      <button
+        (click)="delete(index)"
+        type="button"
+        class="text-xl underline hover:text-transparent decoration-dashed decoration-rose-500 hover:decoration-dotted hover:bg-gradient-to-r bg-clip-text hover:from-rose-500 hover:via-red-400 hover:to-fuchsia-500"
+      >
+        Delete
+      </button>
+    </div>
+
+    <div *ngIf="isAdmin && isEditing" class="flex justify-between">
+      <button
+        (click)="toggleEditing()"
+        type="button"
+        class="text-xl underline hover:text-transparent decoration-dashed decoration-rose-500 hover:decoration-dotted hover:bg-gradient-to-r bg-clip-text hover:from-rose-500 hover:via-red-400 hover:to-fuchsia-500"
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        class="text-xl underline hover:text-transparent decoration-dashed decoration-rose-500 hover:decoration-dotted hover:bg-gradient-to-r bg-clip-text hover:from-rose-500 hover:via-red-400 hover:to-fuchsia-500"
+      >
+        Update
+      </button>
+    </div>
+  </form>
+</div>

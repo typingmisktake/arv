@@ -1,0 +1,159 @@
+<div
+  class="flex flex-col items-center justify-center min-h-screen bg-slate-200"
+>
+  <div
+    class="rounded-[50px] shadow-[20px_20px_60px_rgb(14,165,233,0.2),-20px_-20px_60px_rgb(14,165,233,0.2)] p-8"
+  >
+    <h1 class="mb-3 text-3xl">Profile Form</h1>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col items-center">
+          <fieldset class="p-2 px-4 pb-4 border rounded-2xl border-slate-300">
+            <legend class="mx-2 text-lg text-slate-700">Name</legend>
+            <div class="flex gap-2">
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="First Name"
+                class="px-4 py-2 bg-white rounded-full outline-none focus:shadow-inner caret-sky-500 focus:outline-1 focus:outline-sky-500"
+                formControlName="firstName"
+                autocomplete="off"
+              />
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                class="px-4 py-2 bg-white rounded-full outline-none focus:shadow-inner caret-sky-500 focus:outline-1 focus:outline-sky-500"
+                placeholder="Last Name"
+                formControlName="lastName"
+              />
+            </div>
+          </fieldset>
+        </div>
+        <div class="flex flex-col items-center" formGroupName="address">
+          <fieldset
+            class="w-full p-2 px-4 pb-4 border rounded-2xl border-slate-300"
+          >
+            <legend class="mx-2 text-lg text-slate-700">Address</legend>
+            <div class="flex flex-col gap-2">
+              <input
+                type="text"
+                name="street"
+                id="street"
+                placeholder="Street"
+                class="px-4 py-2 bg-white rounded-full outline-none focus:shadow-inner caret-sky-500 focus:outline-1 focus:outline-sky-500"
+                formControlName="street"
+                autocomplete="off"
+              />
+              <div class="flex gap-2">
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  placeholder="City"
+                  class="px-4 py-2 bg-white rounded-full outline-none focus:shadow-inner caret-sky-500 focus:outline-1 focus:outline-sky-500"
+                  formControlName="city"
+                  autocomplete="off"
+                />
+                <input
+                  type="text"
+                  name="state"
+                  id="state"
+                  class="px-4 py-2 bg-white rounded-full outline-none focus:shadow-inner caret-sky-500 focus:outline-1 focus:outline-sky-500"
+                  placeholder="State"
+                  formControlName="state"
+                />
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="flex flex-col items-center">
+          <fieldset
+            class="w-full px-4 pt-2 pb-4 border rounded-2xl border-slate-300"
+          >
+            <legend class="mx-2 text-lg text-slate-700">Gender</legend>
+            <div class="flex gap-3">
+              <div class="flex items-center justify-center gap-2">
+                <input
+                  type="radio"
+                  name="gender"
+                  class="w-4 h-4 bg-white border rounded-full outline-none appearance-none text-sky-500 checked:ring-sky-500 checked:ring-inset checked:ring-4"
+                  id="male"
+                  value="male"
+                  formControlName="gender"
+                />
+                <label for="male">Male</label>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <input
+                  type="radio"
+                  name="gender"
+                  id="female"
+                  value="female"
+                  class="w-4 h-4 bg-white border rounded-full outline-none appearance-none text-sky-500 checked:ring-sky-500 checked:ring-inset checked:ring-4"
+                  formControlName="gender"
+                />
+                <label for="female">Female</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="flex flex-col items-center">
+          <fieldset
+            class="w-full px-4 pt-2 pb-4 border rounded-2xl border-slate-300"
+          >
+            <legend class="mx-2 text-lg text-slate-700">Hobbies</legend>
+            <div class="flex flex-wrap gap-4" formArrayName="hobbies">
+              <div
+                *ngFor="let hobby of hobbies"
+                class="flex items-center w-1/6 gap-2"
+              >
+                <input
+                  type="checkbox"
+                  [value]="hobby"
+                  [id]="hobby"
+                  (change)="handleCheckbox($event)"
+                />
+                <label [for]="hobby">{{ hobby }}</label>
+              </div>
+            </div>
+            <div
+              class="flex mt-3 bg-white rounded-full focus-within:ring-2 focus-within:ring-sky-500"
+            >
+              <input
+                type="text"
+                name="newHobby"
+                id="newHobby"
+                placeholder="Add new hobby"
+                class="w-full px-4 py-2 rounded-full outline-none caret-sky-500"
+                [formControl]="newHobby"
+              />
+              <button class="mx-1" (click)="addHobby()">
+                <span
+                  class="h-full px-6 py-2 text-white rounded-full bg-sky-500"
+                  >&plus;</span
+                >
+              </button>
+            </div>
+          </fieldset>
+        </div>
+        <input
+          type="submit"
+          value="Submit"
+          [disabled]="!profileForm.valid"
+          class="px-4 py-2 mt-3 text-white transition-all duration-500 rounded-full enabled:cursor-pointer bg-sky-500 enabled:hover:shadow-lg enabled:hover:ring-2 enabled:hover:ring-white disabled:opacity-50"
+        />
+        <input
+          type="button"
+          value="Patch Value"
+          (click)="setAddress()"
+          class="px-4 py-2 text-white bg-green-500 rounded-full"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="mt-10">
+    {{ profileForm.value | json }}
+  </div>
+</div>

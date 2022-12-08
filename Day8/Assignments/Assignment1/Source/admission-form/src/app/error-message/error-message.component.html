@@ -1,0 +1,9 @@
+<div
+  *ngIf="field.invalid && (field?.dirty || field?.touched)"
+  class="mt-2 text-xs text-rose-500 whitespace-nowrap"
+>
+  <div *ngIf="field.errors?.['required']">{{ fieldName }} is required.</div>
+  <div *ngIf="field.errors?.['minlength']">
+    {{ fieldName }} must be at least 3 characters long.
+  </div>
+</div>
